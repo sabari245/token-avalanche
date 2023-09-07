@@ -1,24 +1,24 @@
 import { expect } from "chai";
 import { ethers } from "hardhat";
 
-describe("Storage Contract", () => {
+describe("DegenToken Contract", () => {
 
     async function deployStorage() {
         const [owner, addr1, addr2] = await ethers.getSigners();
 
-        const storageContract = await ethers.deployContract("Storage");
-        await storageContract.waitForDeployment();
+        const degenContract = await ethers.deployContract("DegenToken");
+        await degenContract.waitForDeployment();
 
-        return { storageContract, owner, addr1, addr2 };
+        return { degenContract, owner, addr1, addr2 };
     }
 
-    it("function check", async function () {
+    it("Mint Check", async function () {
 
-        const { storageContract } = await deployStorage();
+        const { degenContract, addr1 } = await deployStorage();
 
-        await storageContract.writeNum(25);
+        const mintAmount = ethers.parseEther("1");
+        await degenContract.mint(addr1.address, mintAmount);
 
-        expect(await storageContract.readNum()).to.equal(25);
-
+        expect(await degenContract.connect(addr1).balance()).to.equal(mintAmount);
     })
 })

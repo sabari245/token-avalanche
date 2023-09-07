@@ -24,11 +24,11 @@ contract DegenToken is ERC20, Ownable {
         _mint(to, amount);
     }
 
-    function transfer(address to, uint256 amount) public positiveAmount(amount) hasBalance(amount) {
+    function transferTokens(address to, uint256 amount) public positiveAmount(amount) hasBalance(amount) {
         _transfer(msg.sender, to, amount);
     }
 
-    function redeem(uint256 amount, string message) public positiveAmount(amount) hasBalance(amount) {
+    function redeemAsset(uint256 amount, string memory message) public positiveAmount(amount) hasBalance(amount) {
         _burn(msg.sender, amount);
         emit Purchase(msg.sender, amount, message);
     }
@@ -37,7 +37,7 @@ contract DegenToken is ERC20, Ownable {
         return balanceOf(msg.sender);
     }
 
-    function burn(uint256 amount) public positiveAmount(amount) hasBalance(amount) {
+    function burnTokens(uint256 amount) public positiveAmount(amount) hasBalance(amount) {
         _burn(msg.sender, amount);
     }
 }
