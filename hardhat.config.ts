@@ -34,9 +34,7 @@ const config: HardhatUserConfig = {
       gasPrice: 225000000000,
       chainId: 43113,
       accounts: [
-        "4cd9b8db8d2c37876f57c6e1b5c2540c65fecf8ad7b68f09ab45359d9f3d591d",
-        "21f1e9f05c09604fb6f514f5e57f88e6023fdfecdc348f94269fa7a0d7c2271e",
-        "ac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
+        // "YOUR PRIVATE KEY HERE"
       ]
     },
     mainnet: {
@@ -49,7 +47,7 @@ const config: HardhatUserConfig = {
     }
   },
   etherscan: {
-    apiKey: "TZ4CNIFXWBF5Z5JT7CH66ATNAIHWWR94YD",
+    apiKey: "", // "YOUR SNOWTRACE API KEY HERE"
   }
 };
 
