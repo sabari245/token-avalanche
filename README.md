@@ -1,17 +1,13 @@
-# Web 3 Starter kit
+# Degen Token
 
-This project is a starter kit for simple web3 projects. I contains a custom deploy script that write the address and abi to `/frontend/src/components/interface.json`. It also contains a simple storage smart contract
-
-This is done as a part of **intermediate EVM course** in metacrafters
-
-It also contains a frontend folder made with next js and it uses web3modal, wagmi and viem to communicate with the blockchain
+This is a simple implementation of a token for a decentralized game powered by Avalanche blockchain. This token can be used to purchase in game assets, redeem rewards and so on. You can check the contract in the ```contracts``` directory and the test is written inside the ```test``` folder. This is a sample project submitted as a part of Metacrafters Assignment
 
 ## hardhat configuration
 
-To run the local node run the following command
+This project has been configured to work with avalanche network. The default settings will fork the fuji testnet of avalance and the localnet of development has a 2 seconds block mining delay. Kindly, set the private keys before development.
 
 ```shell
-npx hardhat node
+npm run node
 ```
 
 > note that this will create a different set of wallets every single time. So the wallet has to be configured before every use. to get around this use some other test nets
@@ -19,21 +15,15 @@ npx hardhat node
 To run the test scripts run the following command
 
 ```shell
-npx hardhat test
+npm run test
 ```
 
-To run the deploy script in local node
+To test the contract on the fuji testnet
 
 ```shell
-npx hardhat run scripts/deploy.ts --network localhost
+npm run test-fuji
 ```
 
-## frontend configuration
+## DISCLAIMER
 
-make sure to install the packages with `npm i` before running the frontend
-
-rename the `.env.example` to `.env` and update the variables value.
-
-> get your project id from https://cloud.walletconnect.com/
-
-To update the networks, go to `/frontend/src/app/page.tsx` and update the `chains` array
+DO NOT USE THIS PROJECT FOR PRODUCTION.
